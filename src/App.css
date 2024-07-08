@@ -1,0 +1,17 @@
+.job-card {
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.job-card button {
+  margin-top: 1em;
+}
+
+.star {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  transition: font-size 0.3s ease;
+}

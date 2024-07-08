@@ -1,5 +1,6 @@
 import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import FavouriteJobs from './FavouriteJobs'
 
 const Job = ({ data }) => (
   <Row
@@ -10,6 +11,7 @@ const Job = ({ data }) => (
       <Link to={`/${data.company_name}`}>{data.company_name}</Link>
     </Col>
     <Col xs={9}>
+      <FavouriteJobs />
       <a href={data.url} target="_blank" rel="noreferrer">
         {data.title}
       </a>

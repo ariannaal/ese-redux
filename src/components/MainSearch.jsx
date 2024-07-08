@@ -43,7 +43,7 @@ const MainSearch = () => {
           </Form>
         </Col>
         <Col xs={10} className="mx-auto mb-5">
-          {jobs && jobs.map(jobData => (
+          {jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}
         </Col>

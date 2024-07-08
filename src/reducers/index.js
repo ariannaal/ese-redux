@@ -7,8 +7,6 @@ export const setJobs = (jobs) => ({
 });
 
 
-
-
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 
 export function addToFavorites(company) { //payload impostato come su oggetto company
@@ -20,8 +18,7 @@ export function addToFavorites(company) { //payload impostato come su oggetto co
 
 // stato iniziale
 const initialState = {
-    list: [],
-    favoritesList: []
+    list: []
 };
 
 // reducer
@@ -41,14 +38,3 @@ export default jobsReducer;
 
 
 
-// export default function favoritesReducer(state = initialState, action) {
-//     switch (action.type) {
-//         case ADD_TO_FAVORITES:
-//             return {
-//                 ...state,
-//                 favoritesList: [...state.favoritesList, action.payload]
-//             };
-//         default:
-//             return state;
-//     }
-// }
