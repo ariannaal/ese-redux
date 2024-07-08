@@ -1,40 +1,46 @@
-const SET_JOBS = 'SET_JOBS';
-
-// azioni
-export const setJobs = (jobs) => ({
-    type: SET_JOBS,
-    payload: jobs
-});
-
-
-export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
-
-export function addToFavorites(company) { //payload impostato come su oggetto company
-    return {
-        type: ADD_TO_FAVORITES,
-        payload: company
-    };
-}
-
-// stato iniziale
 const initialState = {
-    list: []
+    jobs: [],
+    favourites: [],
 };
 
-// reducer
-const jobsReducer = (state = initialState, action) => {
+const mainReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_JOBS:
+        case 'SET_JOBS':
             return {
                 ...state,
-                list: action.payload
+                jobs: action.payload,
+            };
+        case 'ADD_TO_FAVOURITE':
+            return {
+                ...state,
+                favourites: [...state.favourites, action.payload],
+            };
+        case 'REMOVE_FROM_FAVOURITE':
+            return {
+                ...state,
+                favourites: state.favourites.filter((fav) => fav !== action.payload),
             };
         default:
             return state;
     }
 };
 
-export default jobsReducer;
+// Action creators
+export const setJobs = (jobs) => ({
+    type: 'SET_JOBS',
+    payload: jobs,
+});
 
+export const addToFavourites = (company) => ({
+    type: 'ADD_TO_FAVOURITE',
+    payload: company,
+});
+
+export const removeFromFavourites = (company) => ({
+    type: 'REMOVE_FROM_FAVOURITE',
+    payload: company,
+});
+
+export default mainReducer;
 
 

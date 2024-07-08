@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import jobsReducer from '../reducers/index';
+import mainReducer from '../reducers';
 
 const store = configureStore({
-    reducer: {
-        jobs: jobsReducer // jobsReducer è il reducer che gestirà le modifiche a jobs
-    }
+    reducer: mainReducer,
 });
 
 export default store;
