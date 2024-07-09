@@ -2,19 +2,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Star, StarFill } from 'react-bootstrap-icons';
-import { addToFavourites, removeFromFavourites } from '../reducers';
+import { addToFavouritesAction, removeFromFavouritesAction } from '../redux/actions';
 
 const Job = ({ data }) => {
-  const favourites = useSelector((state) => state.favourites);
+  const favourites = useSelector((state) => state.favourites.favourites);
   const dispatch = useDispatch();
 
   const isFav = favourites.includes(data.company_name);
 
   const handleFavouriteClick = () => {
     if (isFav) {
-      dispatch(removeFromFavourites(data.company_name));
+      dispatch(removeFromFavouritesAction(data.company_name));
     } else {
-      dispatch(addToFavourites(data.company_name));
+      dispatch(addToFavouritesAction(data.company_name));
     }
   };
 
